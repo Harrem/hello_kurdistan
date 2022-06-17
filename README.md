@@ -7,7 +7,7 @@ A new Flutter project.
 Rwanga Foundation WeCode bootcamp starter project.
 
 Current Progress:
-![demo](https://github.com/Harrem/hello_kurdistan/blob/master/assets/screenshots/sc1.jpg  =250x)
+![demo](assets/screenshots/sc1.jpg)
 
 
 
