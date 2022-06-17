@@ -4,12 +4,15 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Rwanga Foundation WeCode bootcamp starter project.
 
-A few resources to get you started if this is your first Flutter project:
+Current Progress:
+![This is an image](https://drive.google.com/file/d/1L1xE9hti0EOVSI4lvEP6lR8YqS4b0MnZ/view?usp=drivesdk)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+
+
+
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
