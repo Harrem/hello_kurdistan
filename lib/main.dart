@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'flagViewer.dart';
 
 void main() {
-  runApp(const Hello());
+  runApp(const FlagViewer());
 }
 
 class Hello extends StatelessWidget {
