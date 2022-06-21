@@ -7,7 +7,7 @@ A new Flutter project.
 Rwanga Foundation WeCode bootcamp starter project.
 
 Current Progress:
-![demo](assets/screenshots/sc1.jpg)
+![demo](assets/screenshots/sc2.jpg)
 
 
 
