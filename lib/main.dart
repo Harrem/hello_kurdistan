@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'flagViewer.dart';
+import 'FlagList.dart';
+import 'FlagViewer.dart';
 
 void main() {
-  runApp(const FlagViewer());
+  runApp(FlagList());
 }
 
 class Hello extends StatelessWidget {

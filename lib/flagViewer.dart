@@ -1,127 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:hello_kurdistan/jsonModelTest/Countries.dart';
 
 class FlagViewer extends StatefulWidget {
-  const FlagViewer({Key? key}) : super(key: key);
+  @required
+  Country country;
+  FlagViewer(this.country, {Key? key}) : super(key: key);
 
   @override
-  State<FlagViewer> createState() => _FlagViewerState();
+  State<FlagViewer> createState() => _FlagViewerState(country);
 }
 
 class _FlagViewerState extends State<FlagViewer> {
-  List<Flag> flags = [
-    Flag("United States Of America", Image.asset("assets/flagAmerica.png"),
-        "someText"),
-    Flag("Kurdistan", Image.asset("assets/flagkurdistan.png"), "someText"),
-    Flag("Germany", Image.asset("assets/flagGerman.png"), "someText"),
-    Flag("Germany", Image.asset("assets/flagGerman.png"), "someText"),
-    Flag("Germany", Image.asset("assets/flagGerman.png"), "someText"),
-    Flag("Britain", Image.asset("assets/flagBritain.png"), "someText")
-  ];
+  @required
+  Country country;
+  _FlagViewerState(this.country);
 
-  String txt = "Country";
-  Image? img;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Flag App"),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(children: [
-            myCard(),
-            Expanded(
-              child: ListView.builder(
-                itemCount: flags.length,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        txt = flags[index].name!;
-                        img = flags[index].img!;
-                      });
-                    },
-                    child: Column(
-                      children: [
-                        ListTile(
-                          title: Text(flags[index].name!),
-                          leading: FractionallySizedBox(
-                              widthFactor: 0.2, child: flags[index].img!),
-                        ),
-                        const Divider(),
-                      ],
-                    ),
-                  );
+            title: const Text("FlagViewer"),
+            leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
                 },
-              ),
-            )
-          ]),
-        ),
-      ),
-    );
-  }
-
-  Widget myCard() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 10),
-      child: FractionallySizedBox(
-        widthFactor: 0.93,
-        child: Column(
-          children: [
-            Container(
-              height: 370,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 0,
-                    blurRadius: 10,
-                    offset: const Offset(0, 3), // changes position of shadow
-                  ),
-                ],
-              ),
+                icon: const Icon(Icons.arrow_back))),
+        body: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Card(
+            borderOnForeground: true,
+            child: IntrinsicHeight(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  FractionallySizedBox(
+                    widthFactor: 1,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: img,
+                      child: Image.network(country.flag),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Text(
-                      txt,
-                      style: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
+                  const Divider(color: Colors.transparent),
+                  Text(
+                    country.name,
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(15.0),
+                  const Divider(color: Colors.transparent),
+                  Align(
+                    alignment: Alignment.centerLeft,
                     child: Text(
-                      "The Kurdish flag is the most important symbol of cohesive Kurdish identity.",
-                      style: TextStyle(color: Colors.grey),
+                      "Official Name: Republic of Cyprus",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(color: Colors.grey[600]),
                     ),
                   )
                 ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );
   }
-}
-
-class Flag {
-  String? name;
-  Image? img;
-  String? description;
-
-  Flag(this.name, this.img, this.description);
 }
